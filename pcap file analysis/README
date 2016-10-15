@@ -1,0 +1,11 @@
+The malware was very sophisticated and managed to steal a number
+of important documents without anyone noticing. Finally, the network
+administrator noticed some strange domains in the traffic.
+
+HELP: the file was exfiltrated in pieces of two bytes (less significative
+first)
+
+You want to be really leet.. try to solve it with a single line ;)
+
+After you recover the secret information, use it to decrypt the next level.
+

